@@ -10,9 +10,6 @@ import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
 public class GuiceServletConfig extends GuiceServletContextListener {
 
-//	private static final String POC_SERVER_RESOURCES_PACKAGE = HelloResource.class.getPackage().getName();
-//	private static final String JERSEY_CONFIG_PROPERTY_PACKAGES = "com.sun.jersey.config.property.packages";
-
 	@Override
 	protected Injector getInjector() {
 
