@@ -1,5 +1,9 @@
 package nfrancois.poc.jerseyguiceappengine.resource;
 
+import static org.fest.assertions.Assertions.assertThat;
+
+import javax.ws.rs.core.MediaType;
+
 import nfrancois.poc.jerseyguiceappengine.GuiceServletConfig;
 
 import org.fest.assertions.Assertions;
@@ -28,6 +32,7 @@ public class HelloResourceTest extends JerseyTest {
 		String name ="Nicolas";
 		WebResource path = resource().path(relativeUrl).path(name);
 		Assertions.assertThat(path.getURI().toString()).isEqualTo(getFullUrl(relativeUrl, name));
+		assertThat(path.getRequestBuilder().head().getType()).isEqualTo(MediaType.TEXT_PLAIN_TYPE);
 		int status = path.getRequestBuilder().head().getStatus();
 		Assertions.assertThat(status).isEqualTo(Status.OK.getStatusCode());
 		String response = path.get(String.class);
