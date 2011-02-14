@@ -5,7 +5,7 @@
         version="2.5">
 
         <listener>
-                <listener-class>nfrancois.poc.jerseyguiceappengine.GuiceServletConfig</listener-class>
+                <listener-class>nfrancois.poc.jerseyjaxbguiceappengine.GuiceServletConfig</listener-class>
         </listener>
         <filter>
                 <filter-name>guiceFilter</filter-name>
