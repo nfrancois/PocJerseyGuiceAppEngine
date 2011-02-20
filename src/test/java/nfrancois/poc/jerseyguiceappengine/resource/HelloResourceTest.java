@@ -6,11 +6,10 @@ import javax.ws.rs.core.MediaType;
 
 import nfrancois.poc.jerseyguiceappengine.GuiceServletConfig;
 
-import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import com.google.inject.servlet.GuiceFilter;
-import com.sun.jersey.api.client.ClientResponse.Status;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.test.framework.JerseyTest;
 import com.sun.jersey.test.framework.WebAppDescriptor;
@@ -31,16 +30,8 @@ public class HelloResourceTest extends JerseyTest {
 		String relativeUrl = "hello";
 		String name ="Nicolas";
 		WebResource path = resource().path(relativeUrl).path(name);
-		Assertions.assertThat(path.getURI().toString()).isEqualTo(getFullUrl(relativeUrl, name));
-		assertThat(path.getRequestBuilder().head().getType()).isEqualTo(MediaType.TEXT_PLAIN_TYPE);
-		int status = path.getRequestBuilder().head().getStatus();
-		Assertions.assertThat(status).isEqualTo(Status.OK.getStatusCode());
-		String response = path.get(String.class);
-		Assertions.assertThat(response).isEqualTo("Hello Nicolas");
+		ClientResponse response = path.get(ClientResponse.class);
+		assertThat(response.getType()).isEqualTo(MediaType.TEXT_PLAIN_TYPE);
+		assertThat(response.getEntity(String.class)).isEqualTo("Hello Nicolas");
 	}
-
-	private String getFullUrl(String relativeUrl, String name){
-		return getBaseURI().toString()+relativeUrl+"/"+name;
-	}	
-	
 }
