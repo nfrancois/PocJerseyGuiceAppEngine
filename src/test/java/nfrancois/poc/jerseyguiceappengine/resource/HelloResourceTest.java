@@ -11,19 +11,21 @@ import org.junit.Test;
 import com.google.inject.servlet.GuiceFilter;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.test.framework.AppDescriptor;
 import com.sun.jersey.test.framework.JerseyTest;
 import com.sun.jersey.test.framework.WebAppDescriptor;
 
 public class HelloResourceTest extends JerseyTest {
 	
-    public HelloResourceTest() {
-        super(new WebAppDescriptor.Builder()
-                .contextListenerClass(GuiceServletConfig.class)
-                .filterClass(GuiceFilter.class)
-                .servletPath("/")
-                .build());
-    }
 	
+	@Override
+	protected AppDescriptor configure() {
+		return new WebAppDescriptor.Builder()
+							        .contextListenerClass(GuiceServletConfig.class)
+							        .filterClass(GuiceFilter.class)
+							        .servletPath("/")
+							        .build();
+	}
 	
 	@Test
 	public void shoulReplyHello(){
