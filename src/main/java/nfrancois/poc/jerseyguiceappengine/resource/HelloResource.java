@@ -39,8 +39,8 @@ public class HelloResource {
 	@POST
 	public Response send(String name){
 		String hello = helloService.sendHello(name);
-		URI uri = uriInfo.getAbsolutePathBuilder().path(hello).build();
-		return Response.created(uri).build();
+		URI uri = uriInfo.getAbsolutePathBuilder().build();
+		return Response.created(uri).entity(hello).build();
 	}	
 	
 	

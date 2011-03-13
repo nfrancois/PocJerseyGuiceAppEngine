@@ -2,8 +2,8 @@ package nfrancois.poc.jerseyguiceappengine.resource;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import javax.ws.rs.core.MediaType;
 
@@ -19,8 +19,6 @@ import com.google.inject.servlet.GuiceServletContextListener;
 import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.ClientResponse.Status;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.representation.Form;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 import com.sun.jersey.test.framework.AppDescriptor;
 import com.sun.jersey.test.framework.JerseyTest;
@@ -80,7 +78,7 @@ public class HelloResourceTest extends JerseyTest {
 		verify(helloServiceMock).sendHello(name);
 		assertThat(response.getClientResponseStatus()).isEqualTo(Status.CREATED);
 		assertThat(response.getType()).isEqualTo(MediaType.TEXT_PLAIN_TYPE);
-//		assertThat(response.getEntity(String.class)).isEqualTo("Hello Nicolas");
+		assertThat(response.getEntity(String.class)).isEqualTo("Hello Nicolas");
 	}
 	
 	private class GuiceTestConfig extends GuiceServletContextListener {
