@@ -5,8 +5,12 @@ import javax.inject.Singleton;
 @Singleton
 public class HelloService {
 	
-	public String saysHelloToSomeone(String who){
-		return "Hello "+who;
+	public String saysHelloToSomeone(String name){
+		return "Hello "+name;
+	}
+
+	public String sendHello(String name) {
+		return "Hello "+name;
 	}
 
 }
