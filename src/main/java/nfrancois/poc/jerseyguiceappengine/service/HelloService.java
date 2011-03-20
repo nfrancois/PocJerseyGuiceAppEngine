@@ -2,6 +2,7 @@ package nfrancois.poc.jerseyguiceappengine.service;
 
 import javax.inject.Singleton;
 
+
 @Singleton
 public class HelloService {
 	

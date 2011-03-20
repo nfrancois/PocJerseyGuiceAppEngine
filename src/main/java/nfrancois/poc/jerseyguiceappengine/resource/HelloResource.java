@@ -2,8 +2,6 @@ package nfrancois.poc.jerseyguiceappengine.resource;
 
 import java.net.URI;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -16,6 +14,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import nfrancois.poc.jerseyguiceappengine.service.HelloService;
+
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 @Path("hello")
 @Singleton
