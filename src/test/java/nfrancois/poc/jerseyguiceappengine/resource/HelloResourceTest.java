@@ -51,7 +51,15 @@ public class HelloResourceTest extends JerseyTest {
 							        .filterClass(GuiceFilter.class)
 							        .servletPath("/")
 							        .build();
+	}
+	
+	private static class GuiceTestConfig extends GuiceServletContextListener {
+		@Override
+		public Injector getInjector() {
+			return injector;
+		}
 	}	
+
 	@Test
 	public void shoulReplyHello(){
 		String name ="Nicolas";
@@ -81,10 +89,4 @@ public class HelloResourceTest extends JerseyTest {
 		assertThat(response.getEntity(String.class)).isEqualTo("Hello Nicolas");
 	}
 	
-	private class GuiceTestConfig extends GuiceServletContextListener {
-		@Override
-		public Injector getInjector() {
-			return injector;
-		}
-	}	
 }
