@@ -18,7 +18,7 @@
 		<gae.port>8080</gae.port>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
-		<jersey.version>1.4</jersey.version>
+		<jersey.version>1.6</jersey.version>
 	</properties>
 
 	<pluginRepositories>
