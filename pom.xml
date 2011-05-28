@@ -13,7 +13,7 @@
 	<properties>
 		<downloadSources>true</downloadSources>
 		<java.version>1.6</java.version>
-		<gae.version>1.4.2</gae.version>
+		<gae.version>1.5.0.1</gae.version>
 		<gae.application.version>${project.version}</gae.application.version>
 		<gae.port>8080</gae.port>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -103,7 +103,7 @@
 			<version>1.8.5</version>
 			<scope>test</scope>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-labs</artifactId>
@@ -123,6 +123,18 @@
 			<artifactId>appengine-testing</artifactId>
 			<version>${gae.version}</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${gae.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-tools-sdk</artifactId>
+			<version>${gae.version}</version>
 		</dependency>
 
 		<dependency>
@@ -148,12 +160,6 @@
 					<artifactId>transaction-api</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>${gae.version}</version>
 		</dependency>
 
 		<dependency>
@@ -184,11 +190,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-tools-sdk</artifactId>
-			<version>${gae.version}</version>
-		</dependency>
 		
 		<dependency>
 			<groupId>com.google.guava</groupId>
