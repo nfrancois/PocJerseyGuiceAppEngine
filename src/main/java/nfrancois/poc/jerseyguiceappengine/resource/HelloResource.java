@@ -16,10 +16,10 @@ import javax.ws.rs.core.UriInfo;
 import nfrancois.poc.jerseyguiceappengine.service.HelloService;
 
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
+import com.google.inject.servlet.RequestScoped;
 
 @Path("hello")
-@Singleton
+@RequestScoped
 @Produces(MediaType.TEXT_PLAIN)
 @Consumes(MediaType.TEXT_PLAIN)
 public class HelloResource {
