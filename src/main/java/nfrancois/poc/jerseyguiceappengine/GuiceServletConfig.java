@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nfrancois.poc.jerseyguiceappengine.resource.HelloResource;
+import nfrancois.poc.jerseyguiceappengine.service.HelloService;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -25,6 +26,8 @@ public class GuiceServletConfig extends GuiceServletContextListener {
 
 			@Override
 			protected void configureServlets() {
+				bind(HelloService.class);
+				bind(HelloResource.class);
 				serve("/*").with(GuiceContainer.class, params);
 			}
 		});
